@@ -32,6 +32,8 @@ else if(password_verify($datas_form['password'],$user[0]['password'])){
         // 7-Si user est admin > démarrage session, stockage ds la session d'une preuve d'identification
         session_start();
         $_SESSION["is_admin"] = true;
+        $_SESSION['id_admin'] = $user[0]['id'];
+        $_SESSION['login'] = $user[0]['login'];
         // 8- Redirection du user vers la page de gestion.php (page à créer)
         header('Location: ../backend/gestion.php');
         exit();
